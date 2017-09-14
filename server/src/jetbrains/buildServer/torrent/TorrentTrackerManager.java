@@ -110,12 +110,12 @@ public class TorrentTrackerManager {
 
     myTorrents.clear();
 
-    // if we don't use individual port, we need nothing. Tracker's controller is already initialized.
+    // if we don't use an individual port, we need nothing. The tracker's controller is already initialized.
     if (myConfigurator.isTrackerDedicatedPort()){
       startIndividualPort(myConfigurator.getResolvedOwnAddress());
     }
 
-    //setting peer collection interval to the same as announce interval
+    //setting a peer collection interval to the same as announce interval
     myCleanupTaskFuture = myExecutorService.scheduleWithFixedDelay(new Runnable() {
       public void run() {
         try {
